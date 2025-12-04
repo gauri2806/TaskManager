@@ -2,12 +2,12 @@ import { Button, Modal, Box } from "@mui/material";
 import React, { useState, useEffect, useRef } from "react";
 import MicIcon from "@mui/icons-material/Mic";
 
-const VoiceInput = ({onSubmit}) => {
+const VoiceInput = ({ onSubmit }) => {
   const [isListening, setIsListening] = useState(false);
   const [text, setText] = useState("");
   const [open, setOpen] = useState(false);
 
-  const recognitionRef = useRef(null);
+  const recognitionRef = useRef(null)
 
   useEffect(() => {
     const SpeechRecognition =
@@ -49,7 +49,6 @@ const VoiceInput = ({onSubmit}) => {
     setOpen(false);
   };
 
-
   const startListening = () => {
     setIsListening(true);
     recognitionRef.current.start();
@@ -63,7 +62,7 @@ const VoiceInput = ({onSubmit}) => {
   return (
     <>
       <Button
-        variant="outlined"
+        variant="contained"
         onClick={handleOpen}
         endIcon={<MicIcon />}
         color="primary"
@@ -127,7 +126,7 @@ const VoiceInput = ({onSubmit}) => {
               variant="contained"
               size="large"
               onClick={() => {
-                onSubmit(text); 
+                onSubmit(text);
                 handleClose();
               }}
             >
