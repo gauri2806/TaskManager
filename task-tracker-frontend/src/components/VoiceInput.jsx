@@ -1,4 +1,4 @@
-import { Button, Modal, Box } from "@mui/material";
+import { Button, Modal, Box, IconButton } from "@mui/material";
 import React, { useState, useEffect, useRef } from "react";
 import MicIcon from "@mui/icons-material/Mic";
 
@@ -61,15 +61,9 @@ const VoiceInput = ({ onSubmit }) => {
 
   return (
     <>
-      <Button
-        variant="contained"
-        onClick={handleOpen}
-        endIcon={<MicIcon />}
-        color="primary"
-        size="large"
-      >
-        Voice Input
-      </Button>
+      <IconButton size="large" color="primary" onClick={handleOpen}>
+        <MicIcon />
+      </IconButton>
 
       <Modal open={open} onClose={handleClose}>
         <Box
