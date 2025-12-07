@@ -20,9 +20,20 @@ export default function FilterModal({ onSubmit }) {
 
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+    const clearFilters = () => {
+        setStatusFilters([]);
+        setPriorityFilters([]);
+        onSubmit([], [])
+      };
     return (
         <>
             <Button onClick={handleOpen} sx={{ width: "80px", p: 0.5, m: 0.5, textTransform: 'capitalize', height: '40px' }} variant="contained">Filters</Button>
+                        <Button sx={{
+                          width: '120px',
+                          textTransform: 'capitalize',
+                        }}
+                        onClick={clearFilters}
+                        >Clear Filters</Button>
             <Modal
                 open={open}
                 onClose={handleClose}

@@ -80,10 +80,7 @@ export default function TaskList() {
     setPriorityFilters(priorityFilters);
   }
 
-  const clearFilters = () => {
-    setStatusFilters([]);
-    setPriorityFilters([]);
-  };
+  
 
   useEffect(() => {
     fetchTasks();
@@ -207,12 +204,7 @@ export default function TaskList() {
 
             <FilterModal  onSubmit={getFilters}/>
             
-            <Button sx={{
-              width: '120px',
-              textTransform: 'capitalize',
-            }}
-            onClick={clearFilters}
-            >Clear Filters</Button>
+
           </Box>
           <Box>
 
@@ -278,15 +270,15 @@ export default function TaskList() {
           <Box display="flex" flexDirection="row" gap={2} sx={{ mt: 2 }}>
             <Box flex={1}>
               <Typography variant="h6" align="center" sx={{ mb: 2 }}>To Do</Typography>
-              <StatusSection tasks={sortedTasks} status="to do" />
+              <StatusSection tasks={sortedTasks} status="to do" onTaskUpdated={fetchTasks} onTaskDeleted={fetchTasks} />
             </Box>
             <Box flex={1}>
               <Typography variant="h6" align="center" sx={{ mb: 2 }}>In Progress</Typography>
-              <StatusSection tasks={sortedTasks} status="in progress" />
+              <StatusSection tasks={sortedTasks} status="in progress" onTaskUpdated={fetchTasks} onTaskDeleted={fetchTasks} />
             </Box>
             <Box flex={1}>
               <Typography variant="h6" align="center" sx={{ mb: 2 }}>Completed</Typography>
-              <StatusSection tasks={sortedTasks} status="completed" />
+              <StatusSection tasks={sortedTasks} status="completed" onTaskUpdated={fetchTasks} onTaskDeleted={fetchTasks} />
             </Box>
           </Box>
         )}
